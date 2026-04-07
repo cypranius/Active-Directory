@@ -49,11 +49,11 @@ Created two VMs in VirtualBox:
 - DC-01 (Windows Server 2022) — 4GB RAM, 2 CPU, 50GB disk
 - WS-01 (Windows 11 IoT Enterprise) — 4GB RAM, 2 CPU, 50GB disk
 
-Set both to Internal Network mode for isolation. Assigned static IP addresses and renamed the server to DC-01 [1]. Renamed the workstation to WS-01.
+Set both to Internal Network mode for isolation. Assigned static IP addresses and renamed the server to DC-01. Renamed the workstation to WS-01.
 Verified communication by pinging between both VMs.
 
 ### Phase 2: Domain Controller Configuration
-Installed Active Directory Domain Services (AD DS) role, then promoted the server to a Domain Controller as a new forest: CYBERLAB.local. [2]
+Installed Active Directory Domain Services (AD DS) role, then promoted the server to a Domain Controller as a new forest: CYBERLAB.local.
 
 
 ### Phase 3: OUs, Users, and Groups
@@ -63,32 +63,32 @@ Created three Organizational Units: Admins, Employees, Guests.
 - e_sarah, e_marcus (Employees OU)
 - g_public (Guests OU)
 
-**Security groups created:** [3]
+**Security groups created:**
 - GG_Employees
 - GG_Special_Project
 - GG_Guests
 
-**Group memberships assigned:** [4]
+**Group memberships assigned:**
 - e_sarah, e_marcus → GG_Employees
 - e_marcus → GG_Special_Project
 - g_public → GG_Guests
 - admin_jsmith → Domain Admins
 
 ### Phase 4: File Permissions
-Created C:\Shares\SpecialProject folder. Granted GG_Special_Project Full Control access. [5]
+Created C:\Shares\SpecialProject folder. Granted GG_Special_Project Full Control access.
 
 ### Phase 5: Group Policy Configuration
-**Default Domain Policy** (applies to all users)[6]:
+**Default Domain Policy** (applies to all users):
 - Account lockout threshold: 5 invalid attempts
 - Account lockout duration: 15 minutes
 
-**Employee_Restrictions** (linked to Employees OU) [7],[8]:
+**Employee_Restrictions** (linked to Employees OU):
 - No Control Panel access
 - No command prompt
 - No Run menu
 - Removed Shut Down/Restart options
 
-**Guest_Restrictions** (linked to Guests OU) [9]:
+**Guest_Restrictions** (linked to Guests OU):
 - Hide C: drive
 - Disable USB storage
 - Remove password change option
@@ -101,19 +101,19 @@ On WS-01, set DNS to 192.168.100.10. Joined CYBERLAB.local domain and rebooted.
 
 Logged in as each user to verify restrictions:
 
-**admin_jsmith** — Full access. [10]
+**admin_jsmith** — Full access.
 
-**e_sarah** — Control Panel blocked, no shutdown option, CMD blocked. [11]
+**e_sarah** — Control Panel blocked, no shutdown option, CMD blocked.
 
 **e_marcus** — Same restrictions as e_sarah, plus access to SpecialProject folder.
 
 **g_public** 
-- Logon hours enforced [12]
-- C: drive hidden [13]
-- E: drive access denied [14]
-- Password change missing [15]
-- Run dialog blocked [16]
-- Start Menu access blocked [17]
+- Logon hours enforced
+- C: drive hidden
+- E: drive access denied
+- Password change missing
+- Run dialog blocked
+- Start Menu access blocked
 
 
 ## 🐛 Challenges & Lessons Learned
