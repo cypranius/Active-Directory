@@ -13,14 +13,26 @@ To reflect real workplace scenarios, I implemented foundational policies includi
 
 This project strengthened my ability to design clean AD structures, troubleshoot misconfigurations, and think through the impact of security policies, all in a safe, self-built lab environment.
 
+## 🗺️ Lab Architecture
+- **DC-01:** Windows Server 2022 (Domain Controller) — `192.168.100.10`
+- **WS-01:** Windows 11 IoT Enterprise LTSC (Workstation) — `192.168.100.50`
+- **Network:** Isolated VirtualBox Internal Network
+
 ## 🚀 Skills Demonstrated
+**Technical Skills:**
 - Active Directory Users and Computers (ADUC)
 - Group Policy Management
-- Role-Based Access Control (RBAC)
+- Role-Based Access Control (RBAC) using Active Directory Security Groups
 - User account creation and management
 - Security policy enforcement
 - Windows Server administration
 - VirtualBox networking
+
+**Key Concepts:**
+- Active Directory domain design
+- Organizational Unit structure for role separation
+- Group Policy enforcement and troubleshooting
+- Policy validation through user testing
 
 ## 🛠️ Tools & Technologies
 - VirtualBox 7.x
@@ -29,10 +41,27 @@ This project strengthened my ability to design clean AD structures, troubleshoot
 - Group Policy Management Console
 - Active Directory Users and Computers
 
-## 🗺️ Lab Architecture
-- **DC-01:** Windows Server 2022 (Domain Controller) — `192.168.100.10`
-- **WS-01:** Windows 11 IoT Enterprise LTSC (Workstation) — `192.168.100.50`
-- **Network:** Isolated VirtualBox Internal Network
+## 🐛 Challenges & Lessons Learned
+**VM Instability**
+The Windows Server VM experienced intermittent freezing, leading to critical logging errors. Multiple reboots and snapshot reverts were required. Lesson: Take snapshots before major changes, this saved hours of rework.
+
+**Lab vs. Production Configuration**
+For this lab environment, user accounts were configured with password never expires and user cannot change password. This is for testing convenience only. In a real production environment, passwords would expire after 90 days, users would change their own passwords, and new accounts would require password change at next logon.
+
+**Domain Naming**
+Always append .local or .internal to internal domain names. These TLDs are reserved for private networks and prevent DNS conflicts with public domains.
+
+**Testing Domain User Restrictions**
+Standard domain users cannot log into Domain Controllers by default, this is a security feature, not a limitation. Use the domain-joined workstation (WS-01) to test user restrictions. In production, regular users never log into Domain Controllers.
+
+**Group Policy Notes**
+- The command `gpupdate /force` forces an immediate Group Policy update on a client machine. Without it, policy changes can take up to 90 minutes to apply automatically.
+- GPO links can be removed without deleting the underlying policy. Re-linking the GPO reapplies the restrictions.
+- When users attempt unapproved actions, they receive a clear "cancelled due to restrictions" error message, confirming the policy is actively enforced.
+
+**The Real Lesson: Process Over Technology**
+- The biggest challenge in this lab wasn't technical, it was process. I had a plan, but I didn't realize how easy it was to create contradictions between policies, which caused more problems to troubleshoot.
+- This experience gave me a real appreciation for structural operating procedures, how following a clear, documented process helps avoid errors and makes everything more efficient.
 
 ## 👥 User Accounts & Structure
 | OU | User | Group Membership | Purpose |
@@ -101,42 +130,19 @@ On WS-01, set DNS to 192.168.100.10. Joined CYBERLAB.local domain and rebooted.
 
 Logged in as each user to verify restrictions:
 
-**admin_jsmith** — Full access.
+**admin_jsmith**: Full access.
 
-**e_sarah** — Control Panel blocked, no shutdown option, CMD blocked.
+**e_sarah**: Control Panel blocked, no shutdown option, CMD blocked.
 
-**e_marcus** — Same restrictions as e_sarah, plus access to SpecialProject folder.
+**e_marcus**: Same restrictions as e_sarah, plus access to SpecialProject folder.
 
-**g_public** 
+**g_public**:
 - Logon hours enforced
 - C: drive hidden
 - E: drive access denied
 - Password change missing
 - Run dialog blocked
 - Start Menu access blocked
-
-
-## 🐛 Challenges & Lessons Learned
-**VM Instability**
-The Windows Server VM experienced intermittent freezing, leading to critical logging errors. Multiple reboots and snapshot reverts were required. Lesson: Take snapshots before major changes, this saved hours of rework.
-
-**Lab vs. Production Configuration**
-For this lab environment, user accounts were configured with password never expires and user cannot change password. This is for testing convenience only. In a real production environment, passwords would expire after 90 days, users would change their own passwords, and new accounts would require password change at next logon.
-
-**Domain Naming**
-Always append .local or .internal to internal domain names. These TLDs are reserved for private networks and prevent DNS conflicts with public domains.
-
-**Testing Domain User Restrictions**
-Standard domain users cannot log into Domain Controllers by default, this is a security feature, not a limitation. Use the domain-joined workstation (WS-01) to test user restrictions. In production, regular users never log into Domain Controllers.
-
-**Group Policy Notes**
-- The command `gpupdate /force` forces an immediate Group Policy update on a client machine. Without it, policy changes can take up to 90 minutes to apply automatically.
-- GPO links can be removed without deleting the underlying policy. Re-linking the GPO reapplies the restrictions.
-- When users attempt unapproved actions, they receive a clear "cancelled due to restrictions" error message, confirming the policy is actively enforced.
-
-**The Real Lesson: Process Over Technology**
-- The biggest challenge in this lab wasn't technical, it was process. I had a plan, but I didn't realize how easy it was to create contradictions between policies, which caused more problems to troubleshoot.
-- This experience gave me a real appreciation for structural operating procedures, how following a clear, documented process helps avoid errors and makes everything more efficient.
 
 ## 📸 Screenshots
 
