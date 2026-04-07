@@ -139,26 +139,30 @@ Standard domain users cannot log into Domain Controllers by default, this is a s
 - This experience gave me a real appreciation for structural operating procedures, how following a clear, documented process helps avoid errors and makes everything more efficient.
 
 ## 📸 Screenshots
+
 | # | Screenshot | Description |
 |---|------------|-------------|
-| [1] | ![re-namedDC-01](https://github.com/user-attachments/assets/5b8653f6-e32d-4fc5-bd94-daafa2df759b) | Renaming server to DC-01 |
-| [2] | ![ServerManger_dashboard](https://github.com/user-attachments/assets/d98ffbef-04c9-4ce0-9c0b-52293b6b8fdf) | AD DS installed, promoted to Domain Controller |
-| [3] | ![ADUC_Group_to_user](https://github.com/user-attachments/assets/7ab20bd5-9273-41fd-873b-0c1cfb84dc24) | Security groups created (GG_Employees, GG_Special_Project) |
-| [4] | ![e_marcus_member_of_group](https://github.com/user-attachments/assets/d7be9c17-f7b8-45fd-a7dc-a80eccc7cd61) | Group memberships for e_marcus |
-| [5] | ![Premission_of_SpecialProject](https://github.com/user-attachments/assets/f2eb4618-c6bd-400a-8716-dafa086061a8) | GG_Special_Project folder permissions |
-| [6] | ![DefaultDomainPolicy_changes](https://github.com/user-attachments/assets/a246d222-d145-48a1-be27-ccd947c420fc) | Account lockout policy settings |
-| [7] | ![Employee_restriction_in_EmployeesOU](https://github.com/user-attachments/assets/fff66513-e388-4f83-aa7e-f236a37ad9fa) | Employee_Restrictions linked to Employees OU |
-| [8] | ![Removing_powerbutton_default_setup](https://github.com/user-attachments/assets/8343f2a2-cc35-42d3-8a0a-6ae2910111d6) | Power options removed for employees |
-| [9] | ![Logon_hours_for_public_visitor](https://github.com/user-attachments/assets/e49c578e-dd0e-42b3-8309-61c425c9f6fa) | Guest logon hours configuration |
-| [10] | ![Login_Admin_jsmith](https://github.com/user-attachments/assets/755f9389-5973-4bb8-8ea6-07cfbbc2dfa5) | Admin login successful |
-| [11] | ![login_to_employee_Account_via_windows11](https://github.com/user-attachments/assets/73c79ba4-24c6-4920-9701-a74fc21b79d9) | Employee login successful |
-| [12] | ![Logon_restriction_in_action](https://github.com/user-attachments/assets/d454a6a7-2406-411d-ae0c-4cc39f4295a0) | Guest denied outside logon hours |
-| [13] | ![Policy_to_remove_Cdrive_in_action](https://github.com/user-attachments/assets/087fd883-c530-437d-a400-931f53b21c98) | C: drive hidden for guest |
-| [14] | ![shows_EDrive_not_accessible](https://github.com/user-attachments/assets/30d6dda4-8718-49ae-bb72-c3b528a268fe) | E: drive access denied |
-| [15] | ![Change_password_removed](https://github.com/user-attachments/assets/992a0ef6-8f24-411f-b3e4-716bde3d464f) | Password change option missing |
-| [16] | ![Restriction_prompt](https://github.com/user-attachments/assets/b261c143-02c8-4285-86d9-e2ecb9dba1d4) | Run dialog blocked by policy |
-| [17] | ![Shows_restriction_via_trying_to_access_application_through_searchmenu](https://github.com/user-attachments/assets/7abfc40e-6b18-4de0-a37f-c122499c92ec) | Start Menu access blocked |
-
+| 1 | ![re-namedDC-01](https://github.com/user-attachments/assets/5b8653f6-e32d-4fc5-bd94-daafa2df759b) | Renaming server to DC-01 |
+| 2 | ![ServerManger_dashboard](https://github.com/user-attachments/assets/d98ffbef-04c9-4ce0-9c0b-52293b6b8fdf) | Server Manager after AD DS installation |
+| 3 | ![Created_admin_account](https://github.com/user-attachments/assets/0c8e9608-1d31-48d5-bb3c-0441b29ceb78) | Admin user (admin_jsmith) in Admins OU |
+| 4 | ![Created_Employees](https://github.com/user-attachments/assets/cde43b90-3846-41cf-9ae9-4bf9a66e3c4c) | Employee users (e_sarah, e_marcus) in Employees OU |
+| 5 | ![createdPublicuser](https://github.com/user-attachments/assets/01664dc1-5f9e-4b25-82ed-3e9fb747d2fc) | Guest user (g_public) in Guests OU |
+| 6 | ![Crearated_GG_Group](https://github.com/user-attachments/assets/4faee7d3-2f37-49e5-9751-fb8ff229fed0) | GG_Guests security group |
+| 7 | ![ADUC_Group_to_user](https://github.com/user-attachments/assets/7ab20bd5-9273-41fd-873b-0c1cfb84dc24) | GG_Employees and GG_Special_Project groups in Employees OU |
+| 8 | ![e_marcus_member_of_group](https://github.com/user-attachments/assets/d7be9c17-f7b8-45fd-a7dc-a80eccc7cd61) | e_marcus belongs to GG_Employees and GG_Special_Project |
+| 9 | ![Premission_of_SpecialProject](https://github.com/user-attachments/assets/f2eb4618-c6bd-400a-8716-dafa086061a8) | GG_Special_Project Full Control on SpecialProject folder |
+| 10 | ![DefaultDomainPolicy_changes](https://github.com/user-attachments/assets/a246d222-d145-48a1-be27-ccd947c420fc) | Account lockout policy: 5 attempts, 15 min lockout |
+| 11 | ![Employee_restriction_in_EmployeesOU](https://github.com/user-attachments/assets/fff66513-e388-4f83-aa7e-f236a37ad9fa) | Employee_Restrictions GPO linked to Employees OU |
+| 12 | ![Removing_powerbutton_default_setup](https://github.com/user-attachments/assets/8343f2a2-cc35-42d3-8a0a-6ae2910111d6) | Power options removed — only Lock available |
+| 13 | ![Logon_hours_for_public_visitor](https://github.com/user-attachments/assets/e49c578e-dd0e-42b3-8309-61c425c9f6fa) | Guest logon hours (Mon-Fri, 8 AM – 6 PM) |
+| 14 | ![Login_Admin_jsmith](https://github.com/user-attachments/assets/755f9389-5973-4bb8-8ea6-07cfbbc2dfa5) | Admin login successful |
+| 15 | ![login_to_employee_Account_via_windows11](https://github.com/user-attachments/assets/73c79ba4-24c6-4920-9701-a74fc21b79d9) | Employee login successful |
+| 16 | ![Logon_restriction_in_action](https://github.com/user-attachments/assets/d454a6a7-2406-411d-ae0c-4cc39f4295a0) | Guest login denied outside logon hours |
+| 17 | ![Policy_to_remove_Cdrive_in_action](https://github.com/user-attachments/assets/087fd883-c530-437d-a400-931f53b21c98) | C: drive hidden for guest |
+| 18 | ![shows_EDrive_not_accessible](https://github.com/user-attachments/assets/30d6dda4-8718-49ae-bb72-c3b528a268fe) | E: drive access denied |
+| 19 | ![Change_password_removed](https://github.com/user-attachments/assets/992a0ef6-8f24-411f-b3e4-716bde3d464f) | Password change option missing from Ctrl+Alt+Del |
+| 20 | ![Restriction_prompt](https://github.com/user-attachments/assets/b261c143-02c8-4285-86d9-e2ecb9dba1d4) | Run dialog blocked by policy |
+| 21 | ![Shows_restriction_via_trying_to_access_application_through_searchmenu](https://github.com/user-attachments/assets/7abfc40e-6b18-4de0-a37f-c122499c92ec) | Start Menu program access blocked |
 
 ## 📚 References
 - [Microsoft Learn: Active Directory Domain Services Overview](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview)
