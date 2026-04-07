@@ -28,7 +28,7 @@ This project strengthened my ability to design clean AD structures, troubleshoot
 - Windows Server administration
 - VirtualBox networking
 
-**Key Concepts:**
+**🎯Key Concepts:**
 - Active Directory domain design
 - Organizational Unit structure for role separation
 - Group Policy enforcement and troubleshooting
