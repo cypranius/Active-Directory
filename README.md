@@ -107,7 +107,7 @@ Logged in as each user to verify restrictions:
 
 **e_marcus** — Same restrictions as e_sarah, plus access to SpecialProject folder.
 
-**g_public** — 
+**g_public** 
 - Logon hours enforced [12]
 - C: drive hidden [13]
 - E: drive access denied [14]
