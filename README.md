@@ -99,10 +99,11 @@ On WS-01, set DNS to 192.168.100.10. Joined CYBERLAB.local domain and rebooted.
 
 ### Phase 7: Validation Testing
 Logged in as each user to verify restrictions:
--**admin_jsmith** — Full access. [10]
--**e_sarah** — Control Panel blocked, no shutdown option, CMD blocked. [11]
--**e_marcus** — Same restrictions as e_sarah, plus access to SpecialProject folder.
--**g_public** — Logon hours enforced [12], C: drive hidden [13], E: drive access denied [14], password change missing [15], Run dialog blocked [16], Start Menu access blocked [17]
+
+**admin_jsmith**  Full access. [10]
+**e_sarah**  Control Panel blocked, no shutdown option, CMD blocked. [11]
+**e_marcus**  Same restrictions as e_sarah, plus access to SpecialProject folder.
+**g_public**  Logon hours enforced [12], C: drive hidden [13], E: drive access denied [14], password change missing [15], Run dialog blocked [16], Start Menu access blocked [17]
 
 
 ## 🐛 Challenges & Lessons Learned
