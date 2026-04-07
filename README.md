@@ -58,17 +58,14 @@ Installed Active Directory Domain Services (AD DS) role, then promoted the serve
 
 ### Phase 3: OUs, Users, and Groups
 Created three Organizational Units: Admins, Employees, Guests.
-
 **Users created:**
 - admin_jsmith (Admins OU)
 - e_sarah, e_marcus (Employees OU)
 - g_public (Guests OU)
-
 **Security groups created:** [3]
 - GG_Employees
 - GG_Special_Project
 - GG_Guests
-
 **Group memberships assigned:** [4]
 - e_sarah, e_marcus → GG_Employees
 - e_marcus → GG_Special_Project
@@ -82,13 +79,11 @@ Created C:\Shares\SpecialProject folder. Granted GG_Special_Project Full Control
 **Default Domain Policy** (applies to all users)[6]:
 - Account lockout threshold: 5 invalid attempts
 - Account lockout duration: 15 minutes
-
 **Employee_Restrictions** (linked to Employees OU) [7],[8]:
 - No Control Panel access
 - No command prompt
 - No Run menu
 - Removed Shut Down/Restart options
-
 **Guest_Restrictions** (linked to Guests OU) [9]:
 - Hide C: drive
 - Disable USB storage
@@ -100,7 +95,6 @@ On WS-01, set DNS to 192.168.100.10. Joined CYBERLAB.local domain and rebooted.
 
 ### Phase 7: Validation Testing
 Logged in as each user to verify restrictions:
-
 **admin_jsmith** — Full access. [10]
 **e_sarah** — Control Panel blocked, no shutdown option, CMD blocked. [11]
 **e_marcus** — Same restrictions as e_sarah, plus access to SpecialProject folder.
